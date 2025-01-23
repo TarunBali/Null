@@ -611,6 +611,46 @@ body {
     box-shadow: 0 0 10px rgba(255, 165, 0, 0.5), 0 0 20px rgba(255, 165, 0, 0.5), 0 0 60px rgba(255, 165, 0, 0.5), 0 0 80px rgba(255, 165, 0, 0.5);
   }
 }
+ .transition-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            display: none;
+            z-index: 1000;
+        }
+
+        .transition-container.show {
+            display: block;
+        }
+
+        .final-message {
+            font-size: 4rem;
+            color: #ff0000;
+            text-shadow: 0 0 10px rgba(255,0,0,0.5);
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .final-subtitle {
+            font-size: 1.5rem;
+            color: yellow;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -630,11 +670,13 @@ body {
         <div class="flame"></div>
     </div>
        <div class="subtitle">Touch the candle to blow it out!!!</div>
+	   </div>
 
     <div class="transition-container hidden">
         <div class="final-message">HAPPY BIRTHDAY</div>
         <div class="final-subtitle">Count not the candles…see the lights they give. Count not the years, but the life you live. Wishing you a wonderful time ahead.</div>
     </div>
+
 
     <script>
         document.querySelector('.candle').addEventListener('click', function() {
