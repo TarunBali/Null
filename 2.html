@@ -177,7 +177,11 @@
                     gameActive = false;
                     setTimeout(() => {
                         document.body.innerHTML = '<div class="loading">Presenting the final cake...</div>';
-                    }, 2000);
+                        // Wait for 2 seconds before redirecting
+                        setTimeout(() => {
+                            window.location.href = '3.html'; // Redirect to 3.html
+                        }, 2000); // Delay of 2 seconds
+                    }, 2000); // Wait for 2 seconds before showing the "Presenting" message
                 }
             }
         });
